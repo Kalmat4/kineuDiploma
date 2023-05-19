@@ -101,3 +101,5 @@ function TranslateHtmlHandler(code) {
 			.classList.add("language__img_active");
 	}
 }
+
+

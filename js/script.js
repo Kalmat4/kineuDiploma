@@ -285,3 +285,5 @@
         }
     }
 
+    let item = document.querySelector('.remData');
+    item.innerHTML = item.style.top;

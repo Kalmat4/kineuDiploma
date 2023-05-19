@@ -144,6 +144,9 @@
     .nav__item:hover{
         cursor: pointer;
     }
+    .remData{
+        top: 15rem;
+    }
     .nav__item__1:hover + .dropdown-menu, .dropdown-menu:hover{
         position: absolute;
         top: var(--topValue);
@@ -967,7 +970,7 @@
             font-size: 10px;
         }
         *{
-            --topValue: 430px;
+            --topValue: 43rem;
         }
         .book__item{
             width: 90%;

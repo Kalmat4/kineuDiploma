@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="../images/logo.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <?php if(!($_SERVER['REQUEST_URI'] == '/index.php')){ ?>
+    <?php if($_SERVER['REQUEST_URI'] != '/index.php' && $_SERVER['REQUEST_URI'] != '/'){ ?>
     <script src="../js/google-translate.js"></script>
     <?php } ?>
     <title>БИБЛИОТЕКА КОСТАНАЙСКОГО ИНЖЕНЕРНО-ЭКОНОМИЧЕСКОГО УНИВЕРСИТЕТА ИМ. М. ДУЛАТОВА</title>
