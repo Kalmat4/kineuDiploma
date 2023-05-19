@@ -285,5 +285,10 @@
         }
     }
 
+
     let item = document.querySelector('.remData');
-    item.innerHTML = item.style.top;
+    item.innerHTML = window.getComputedStyle(item, null).getPropertyValue('top');
+    window.addEventListener('resize', function(event) {
+        item.innerHTML = window.getComputedStyle(item, null).getPropertyValue('top');
+    }, true);
+    

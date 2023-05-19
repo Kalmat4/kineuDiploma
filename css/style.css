@@ -145,7 +145,7 @@
         cursor: pointer;
     }
     .remData{
-        top: 15rem;
+        top: 1em;
     }
     .nav__item__1:hover + .dropdown-menu, .dropdown-menu:hover{
         position: absolute;
@@ -1015,9 +1015,9 @@
 }
 .language__toggle{
     display: none;
-    flex-direction: column;
+    flex-direction: row;
     background-color: var(--backgroundColor);
-    align-items: center;
+    justify-content: center;
     padding: 0 1rem 1rem 1rem;
 }
 .dropdown_lang{

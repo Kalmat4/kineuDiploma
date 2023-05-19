@@ -27,7 +27,6 @@ session_start();
 
 ?>
 
-<div class="remData">dddd</div>
 <div class="header">
     <div class="wrapper">
         <div class="language">
@@ -47,7 +46,8 @@ session_start();
             </a>
         </div>
         <span class="header__title">
-            <a href="<?=$pathToHome?>">БИБЛИОТЕКА КОСТАНАЙСКОГО ИНЖЕНЕРНО-ЭКОНОМИЧЕСКОГО УНИВЕРСИТЕТА ИМ. М. ДУЛАТОВА</a> 
+            <a href="<?=$pathToHome?>">
+<div class="remData">dddd</div>БИБЛИОТЕКА КОСТАНАЙСКОГО ИНЖЕНЕРНО-ЭКОНОМИЧЕСКОГО УНИВЕРСИТЕТА ИМ. М. ДУЛАТОВА</a> 
         </span>
         <div class="social">
             <a href="https://t.me/library_kineu">
