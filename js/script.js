@@ -285,10 +285,39 @@
         }
     }
 
+    
+    
+    let navItem ;
+    let wrapper;
+    
 
-    let item = document.querySelector('.remData');
-    item.innerHTML = window.getComputedStyle(item, null).getPropertyValue('top');
-    window.addEventListener('resize', function(event) {
-        item.innerHTML = window.getComputedStyle(item, null).getPropertyValue('top');
-    }, true);
+
+
+    let nav;
+    let isOpenMenu = false;
+    document.addEventListener('mousemove', function(e){
+            
+        navItem = document.querySelector('.navigation').clientHeight;
+        wrapper = document.querySelector('.wrapper').clientHeight;
+        let count = navItem + wrapper;
+        if (!(isOpenMenu)){
+            nav = document.querySelector("." + String(e.target.parentElement.classList[1]) + " > .dropdown-menu"); 
+        }
+        if(String(e.target.classList).indexOf('nav__item') >= 0){
+            nav.style.top = count + 'px';
+            isOpenMenu = true;
+            if (isOpenMenu){
+                if (nav.parentElement.classList[1] != e.target.parentElement.classList[1]){
+                    nav.style.top = '0px';
+                    isOpenMenu = false;
+                    nav = document.querySelector("." + String(e.target.parentElement.classList[1]) + " > .dropdown-menu"); 
+                    nav.style.top = count + 'px';
+                    isOpenMenu = true;
+                }
+            }
+        }else{
+            nav.style.top = '0px';
+            isOpenMenu = false;
+        }
+    })
     

@@ -2,7 +2,6 @@
     *{
         --fontColor:#000;
         --backgroundColor: #283E71;
-        --topValue: 15rem;
     }
     ::selection {
         background: #283E71; /* Safari */
@@ -144,27 +143,20 @@
     .nav__item:hover{
         cursor: pointer;
     }
-    .remData{
-        top: 1em;
-    }
     .nav__item__1:hover + .dropdown-menu, .dropdown-menu:hover{
         position: absolute;
-        top: var(--topValue);
         transition: 0.5s;
     }
     .nav__item__2:hover + .dropdown-menu, .dropdown-menu:hover{
         position: absolute;
-        top: var(--topValue);
         transition: 0.5s;
     }
     .nav__item__3:hover + .dropdown-menu, .dropdown-menu:hover{
         position: absolute;
-        top: var(--topValue);
         transition: 0.5s;
     }
     .nav__item__4:hover + .dropdown-menu, .dropdown-menu:hover{
         position: absolute;
-        top: var(--topValue);
         transition: 0.5s;
     }
     .dropdown-menu{
@@ -749,9 +741,6 @@
         body{
             overflow-x: hidden;
         }
-        *{
-            --topValue: 23rem;
-        }
         :root{
             font-size: 14px;
         }
@@ -810,7 +799,7 @@
         }
         
         [id^="dropdown__item__"]{
-            width: 100%;
+            width: 97%;
             position: absolute;
             left: 0;
         }
@@ -820,15 +809,7 @@
         }
         
     }
-    @media (max-width: 916px) {
-        *{
-            --topValue: 23rem;
-        }
-    }
     @media (max-width: 768px){
-        *{
-            --topValue: 28rem;
-        }
         :root{
             font-size: 12px;
         }
@@ -867,6 +848,7 @@
         :root{
             font-size: 10px;
         }
+        
         .swiper-slide-active {
             margin: 0;
         }
@@ -926,12 +908,14 @@
         
 
     }
+    @media (max-width: 472px){
+        [id^="dropdown__item__"]{
+            width: 94%;
+        }
+    }
     @media (max-width: 462px){
         :root{
             font-size: 10px;
-        }
-        *{
-            --topValue: 30rem;
         }
         .book__item{
             width: 90%;
@@ -941,9 +925,6 @@
     @media (max-width: 399px){
         :root{
             font-size: 10px;
-        }
-        *{
-            --topValue: 31rem;
         }
         .book__item{
             width: 90%;
@@ -957,20 +938,15 @@
         :root{
             font-size: 10px;
         }
-        *{
-            --topValue: 37rem;
-        }
         .book__item{
             width: 90%;
             margin: 0 auto;
         }
+        
     }
     @media (max-width: 356px){
         :root{
             font-size: 10px;
-        }
-        *{
-            --topValue: 43rem;
         }
         .book__item{
             width: 90%;
@@ -980,9 +956,6 @@
     @media (max-width: 254px){
         :root{
             font-size: 10px;
-        }
-        *{
-            --topValue: 49rem;
         }
         .book__item{
             width: 90%;

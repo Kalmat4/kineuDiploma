@@ -47,7 +47,8 @@ session_start();
         </div>
         <span class="header__title">
             <a href="<?=$pathToHome?>">
-<div class="remData">dddd</div>БИБЛИОТЕКА КОСТАНАЙСКОГО ИНЖЕНЕРНО-ЭКОНОМИЧЕСКОГО УНИВЕРСИТЕТА ИМ. М. ДУЛАТОВА</a> 
+                БИБЛИОТЕКА КОСТАНАЙСКОГО ИНЖЕНЕРНО-ЭКОНОМИЧЕСКОГО УНИВЕРСИТЕТА ИМ. М. ДУЛАТОВА
+            </a> 
         </span>
         <div class="social">
             <a href="https://t.me/library_kineu">
@@ -76,7 +77,7 @@ session_start();
                     <a href="../index.php">Главная</a> 
                 </li>
             </div>
-            <div class="nav__item__wrap">
+            <div class="nav__item__wrap wrap__item__1">
                 <li class="nav__item nav__item__1" >
                     O Библиотеке
                 </li>
@@ -92,7 +93,7 @@ session_start();
                 </div>
             </div>
 
-            <div class="nav__item__wrap">
+            <div class="nav__item__wrap wrap__item__2">
                 <li class="nav__item nav__item__2">
                     Пользователю 
                 </li> 
@@ -112,7 +113,7 @@ session_start();
                 
             </div>   
 
-            <div class="nav__item__wrap">
+            <div class="nav__item__wrap wrap__item__3">
                 <li class="nav__item nav__item__3">
                     Электронные ресурсы
                 </li>
@@ -132,7 +133,7 @@ session_start();
                 
             </div>
             
-            <div class="nav__item__wrap">
+            <div class="nav__item__wrap wrap__item__4">
                 <li class="nav__item nav__item__4">
                     Фонды библиотеки 
                 </li>
