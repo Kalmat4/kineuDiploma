@@ -127,6 +127,9 @@
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+        autoplay: {
+            delay: 1500,
+        },
         breakpoints:{
             600:{
                 slidesPerView: 3,
@@ -290,22 +293,31 @@
     let navItem ;
     let wrapper;
     
-
-
-
+    
+    
+    
     let nav;
     let isOpenMenu = false;
+    let targetItem;
+    let getStyle; 
+    let dropdownTop; 
+    let dropdownHeight; 
+    let borderBottom = 1000; 
     document.addEventListener('mousemove', function(e){
-            
+    
         navItem = document.querySelector('.navigation').clientHeight;
         wrapper = document.querySelector('.wrapper').clientHeight;
         let count = navItem + wrapper;
+        targetItem = document.querySelector("." + String(e.target.parentElement.classList[1]) + " > .dropdown-menu"); 
+        
         if (!(isOpenMenu)){
             nav = document.querySelector("." + String(e.target.parentElement.classList[1]) + " > .dropdown-menu"); 
         }
         if(String(e.target.classList).indexOf('nav__item') >= 0){
+            
             nav.style.top = count + 'px';
             isOpenMenu = true;
+                
             if (isOpenMenu){
                 if (nav.parentElement.classList[1] != e.target.parentElement.classList[1]){
                     nav.style.top = '0px';
@@ -314,10 +326,23 @@
                     nav.style.top = count + 'px';
                     isOpenMenu = true;
                 }
+                getStyle = window.getComputedStyle(targetItem);
+                
+                dropdownPadding = +getStyle.getPropertyValue('padding').replace('px','');
+                dropdownTop = +getStyle.getPropertyValue('top').replace('px','');
+                dropdownHeight = +getStyle.getPropertyValue('height').replace('px','');
+                dropdownHeight += (dropdownPadding * 2);
+                borderBottom = dropdownTop + dropdownHeight;
+                    
             }
-        }else{
-            nav.style.top = '0px';
-            isOpenMenu = false;
+            
+        }else if(e.clientY > borderBottom){
+            if (isOpenMenu){
+                nav.style.top = '0px';
+                isOpenMenu = false;
+            }
         }
     })
+    
+    
     
