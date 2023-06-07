@@ -375,6 +375,7 @@
     }
     .btnSend:hover{
         background-color: var(--fontColor); 
+        color: #fff;
         cursor: pointer;
     }
     .social{
@@ -493,14 +494,8 @@
     }
     .annotation > .value:hover{
         text-decoration: underline;
-    }
-    [id^="page__"]{
-        height: 11rem;
-        overflow: hidden;
-    } 
-    [id^="page__"]:hover{
         cursor: pointer;
-    } 
+    }
     
 
     .book__title{

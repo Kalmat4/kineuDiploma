@@ -266,19 +266,6 @@
       }
 
 
-    function showDetails(param){
-        let element = document.querySelector('#' + param);
-        if (element.style.height == '11rem' || element.style.height.length < 1){
-            element.style.height = 'unset';
-            element.style.transition = '0.4s';
-        }else{
-            element.style.height = '11rem';
-            element.style.overflow = 'hidden';
-            element.style.transition = '0.4s';
-        }
-    }
-
-
     function showLangMenu(){
         let element = document.querySelector('.language__toggle');
         if (element.style.display == 'flex'){

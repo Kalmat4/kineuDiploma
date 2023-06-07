@@ -254,7 +254,7 @@ $pathSomewhere = "../";
                                             <?php endif;?>
                                             
                                             <?php if (strlen(strip_tags($content['description'])) > 5):?>
-                                                <div class="field annotation">Аннотация: <span class="value" id="<?='page__' . $page__counter?>" onclick="showDetails('<?='page__' . $page__counter?>')"><?=strip_tags($content['description'])?></span></div> <!--Аннотация-->
+                                                <div class="field annotation">Аннотация: <span class="value" ><?=strip_tags($content['description'])?></span></div> <!--Аннотация-->
                                             <?php endif;?>    
                                             
                                             <?php if (strlen(strip_tags($content['keyWords'])) > 5):?>
