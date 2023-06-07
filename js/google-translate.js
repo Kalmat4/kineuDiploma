@@ -1,5 +1,4 @@
 
-
 const googleTranslateConfig = {
 	/* Original language */
 	lang: "ru",

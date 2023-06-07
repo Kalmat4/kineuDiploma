@@ -100,13 +100,13 @@ session_start();
                     <div id="dropdown__item__2" class="dropdown-menu">
                         <ul class="dropdown__list">
                             <li class="dropdown__item">
-                                <a href="<?php echo $pathToPages . "/useRules.php"?>">Правило пользования Библиотеки КИнЭУ</a>
+                                <a href="<?php echo $pathToPages . "/useRules.php"?>">Правила пользования Библиотеки КИнЭУ</a>
                             </li>
                             <!--<li class="dropdown__item">
                                 <a href="#">Услуги Библиотеки КИнЭУ </a>
                             </li>-->
                             <li class="dropdown__item">
-                                <a href="<?php echo $pathToPages . "/moreRules.php"?>">Правило составления библиографических списков</a>
+                                <a href="<?php echo $pathToPages . "/moreRules.php"?>">Правила составления библиографических списков</a>
                             </li>
                         </ul>
                     </div> 

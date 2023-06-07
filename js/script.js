@@ -301,28 +301,29 @@
             nav = document.querySelector("." + String(e.target.parentElement.classList[1]) + " > .dropdown-menu"); 
         }
         if(String(e.target.classList).indexOf('nav__item') >= 0){
-            
-            nav.style.top = count + 'px';
-            isOpenMenu = true;
-                
-            if (isOpenMenu){
-                if (nav.parentElement.classList[1] != e.target.parentElement.classList[1]){
-                    nav.style.top = '0px';
-                    isOpenMenu = false;
-                    nav = document.querySelector("." + String(e.target.parentElement.classList[1]) + " > .dropdown-menu"); 
-                    nav.style.top = count + 'px';
-                    isOpenMenu = true;
-                }
-                getStyle = window.getComputedStyle(targetItem);
-                
-                dropdownPadding = +getStyle.getPropertyValue('padding').replace('px','');
-                dropdownTop = +getStyle.getPropertyValue('top').replace('px','');
-                dropdownHeight = +getStyle.getPropertyValue('height').replace('px','');
-                dropdownHeight += (dropdownPadding * 2);
-                borderBottom = dropdownTop + dropdownHeight;
+            if(!(String(e.target.classList).indexOf('nav__item__0') >= 0)){
+
+                nav.style.top = count + 'px';
+                isOpenMenu = true;
                     
+                if (isOpenMenu){
+                    if (nav.parentElement.classList[1] != e.target.parentElement.classList[1]){
+                        nav.style.top = '0px';
+                        isOpenMenu = false;
+                        nav = document.querySelector("." + String(e.target.parentElement.classList[1]) + " > .dropdown-menu"); 
+                        nav.style.top = count + 'px';
+                        isOpenMenu = true;
+                    }
+                    getStyle = window.getComputedStyle(targetItem);
+                    
+                    dropdownPadding = +getStyle.getPropertyValue('padding').replace('px','');
+                    dropdownTop = +getStyle.getPropertyValue('top').replace('px','');
+                    dropdownHeight = +getStyle.getPropertyValue('height').replace('px','');
+                    dropdownHeight += (dropdownPadding * 2);
+                    borderBottom = dropdownTop + dropdownHeight;
+                        
+                }
             }
-            
         }else if(e.clientY > borderBottom){
             if (isOpenMenu){
                 nav.style.top = '0px';
