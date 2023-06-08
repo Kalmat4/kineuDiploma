@@ -1,8 +1,20 @@
+/*!***************************************************
+ * google-translate.js v1.0.5
+ * https://Get-Web.Site/
+ * author: Vitalii P.
+ *****************************************************/
 
 const googleTranslateConfig = {
 	/* Original language */
 	lang: "ru",
 
+	/* The language we translate into on the first visit*/
+	/* Язык, на который переводим при первом посещении */
+	/* langFirstVisit: 'en', */
+
+	/* Если скрипт не работает или работает неправильно, раскомментируйте и укажите основной домен в свойстве domain */
+	/* If the script does not work or does not work correctly, uncomment and specify the main domain in the domain property */
+	domain: "beget.tech" 
 };
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -100,6 +112,3 @@ function TranslateHtmlHandler(code) {
 			.classList.add("language__img_active");
 	}
 }
-
-
-

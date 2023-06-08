@@ -24,6 +24,9 @@ session_start();
 
     $pathOutside = "../";
     
+    if (strlen($_GET['auth']) > 1){
+        $_SESSION['authToken'] = $_GET['auth'];       
+    }
 
 ?>
 
@@ -72,8 +75,8 @@ session_start();
             <div class="nav__button__divider"></div>
         </div>
         <ul class="nav__bar">
-            <div class="nav__item__wrap">
-                <li class="nav__item nav__item__0" >
+            <div class="differentNav">
+                <li class="mainpagebtn" >
                     <a href="../index.php">Главная</a> 
                 </li>
             </div>
@@ -84,7 +87,7 @@ session_start();
                 <div id="dropdown__item__1" class="dropdown-menu">
                     <ul class="dropdown__list">
                         <li class="dropdown__item">
-                            <a href="<?php echo $pathToPages . "/mission.php"?>">Миссия. Задачи. Приоритетные направления</a>
+                            <a class="dropLink" href="<?php echo $pathToPages . "/mission.php"?>">Миссия. Задачи. Приоритетные направления</a>
                         </li>
                         <li class="dropdown__item">
                             <a href="<?php echo $pathToPages . "/contacts.php"?>">Контакты. Режим работы</a>
