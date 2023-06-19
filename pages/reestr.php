@@ -29,12 +29,14 @@ $pathSomewhere = "../";
                     // error_reporting(0);
                         if(strlen($_SESSION['sql']) > 1){
                             if ($_SERVER['REQUEST_URI'] == '/pages/reestr.php?clear'){
-                                $request = "SELECT * FROM `materials`";
+                                $request = "SELECT * FROM `materials`  
+                                ORDER BY `materials`.`id`  DESC";
                             }else{
                                 $request = $_SESSION['sql'];   
                             }
                         } else { 
-                            $request = "SELECT * FROM `materials`";
+                            $request = "SELECT * FROM `materials`  
+                            ORDER BY `materials`.`id`  DESC";
                         }      
                         $isInputFilled = false;
 
@@ -57,12 +59,24 @@ $pathSomewhere = "../";
                         $oneField;
                         $twoField;
 
+                        function kaztrans($str){
+                            $alph = array(
+                                /*--*/
+                                "ә" => "&#1241;", "і" => "і", "ң" => "&#1187;", "ғ" => "&#1171;", "ү" => "&#1199;", "ұ" => "&#1201;",
+                                "қ" => "&#1179;", "ө" => "&#1257;", "һ" => "&#1211;",
+                                /*--*/
+                                "Ә" => "&#1240;", "І" => "І", "Ң" => "&#1186;", "Ғ" => "&#1170;", "Ү" => "&#1198;", "Ұ" => "&#1200;", "Қ" => "&#1178;",
+                                "Ө" => "&#1256;", "Һ" => "&#1210;",
+                                " " => "&nbsp;"
+                            );
+                            return strtr($str, $alph);
+                        }
 
                         
                         for ($i=0;$i<count($fieldArray);$i++){
 
 
-                            $fieldContent = $_POST[$fieldArray[$i]];
+                            $fieldContent = kaztrans($_POST[$fieldArray[$i]]);
 
                             if (strlen($_POST[$fieldArray[$i]]) >= 1){
                                 if (strlen($firstFieldInput) >= 1){
@@ -129,7 +143,20 @@ $pathSomewhere = "../";
                         }
                         $sortText = 'Сортировка по полю <b>«';
                         if (strlen($secondFieldInput) >= 1 && strlen($firstFieldInput) >= 1){
-                            $request = "SELECT * FROM `materials` WHERE `" . $firstFieldName . "` LIKE '%" . $firstFieldInput . "%' AND `" . $secondFieldName . "` LIKE '%" . $secondFieldInput . "%'";
+
+                            if ($firstFieldName == 'vid_izd_id' || $firstFieldName == 'spec_id' || $firstFieldName == 'rubric_id'){
+                                $symb = '';
+                            }else{
+                                $symb = '%';
+                            }
+
+                            if ($secondFieldName == 'vid_izd_id' || $secondFieldName == 'spec_id' || $secondFieldName == 'rubric_id'){
+                                $symb2 = '';
+                            }else{
+                                $symb2 = '%';
+                            }
+
+                            $request = "SELECT * FROM `materials` WHERE `" . $firstFieldName . "` LIKE '" . $symb . $firstFieldInput  . $symb . "' AND `" .  $secondFieldName . "` LIKE '" . $symb2 . $secondFieldInput . $symb2 . "'";
                             $isInputFilled = true;
 
 
@@ -148,8 +175,14 @@ $pathSomewhere = "../";
                                 $secondFieldInput = getListItemName($ifSecondIntValue, $twoField); 
                             }
                             $sortText .= $firstClearName . "»</b> равное значению <b>«" . $firstFieldInput . "»</b> и по полю <b>«" . $secondClearName . "»</b> равное значению <b>«" . $secondFieldInput . "»</b>";
+    
                         }else if (strlen($firstFieldInput) >= 1){
-                            $request = "SELECT * FROM `materials` WHERE `" . $firstFieldName . "` LIKE '%" . $firstFieldInput . "%'";
+                            if ($firstFieldName == 'vid_izd_id' || $firstFieldName == 'spec_id' || $firstFieldName == 'rubric_id'){
+                                $symb = '';
+                            }else{
+                                $symb = '%';
+                            }
+                            $request = "SELECT * FROM `materials` WHERE `" . $firstFieldName . "` LIKE '" . $symb . $firstFieldInput . $symb ."'";
                             $isInputFilled = true;
                             $clearName = getClearName($firstFieldName);
 
@@ -159,6 +192,7 @@ $pathSomewhere = "../";
                                 $firstFieldInput = getListItemName($ifFirstIntValue, $oneField);  
                             }
                             $sortText .= $clearName . "»</b> равное значению <b>«" . $firstFieldInput . "»</b>";
+
                         }
 
 
@@ -167,7 +201,8 @@ $pathSomewhere = "../";
                             $_SESSION['sql'] = $request;
                             echo "<br/>" . $sortText . "<br/>";
                         }else{
-                            $sql = mysqli_query($link, "SELECT * FROM `materials`");
+                            $sql = mysqli_query($link, "SELECT * FROM `materials`  
+                            ORDER BY `materials`.`id`  DESC");
                         }
 
 
@@ -205,7 +240,7 @@ $pathSomewhere = "../";
                         
 
                         <?php
-                        $pagesPerTime = 5;
+                        $pagesPerTime = 10;
                         $page = ""; 
                         $queryStr = $_SERVER["QUERY_STRING"];
                                     
@@ -216,7 +251,7 @@ $pathSomewhere = "../";
                         $page__count = floor($products / $pagesPerTime); 
                         
                         function getInfo($sqlText){ 
-                            $pagesPerTime = 5;
+                            $pagesPerTime = 10;
                             $page = ""; 
                             $queryStr = $_SERVER["QUERY_STRING"];
                                         
@@ -237,6 +272,24 @@ $pathSomewhere = "../";
                                             <?php if (strlen(strip_tags($content['book__name'])) > 5):?>
                                                 <div class="field book__title"><span><?=strip_tags($content['book__name'])?></div> <!--Заголовок-->
                                             <?php endif;?>
+                                            
+                                            <?php 
+                                            $fullString = '';
+                                            if (strlen(strip_tags($content['pub_year'])) > 0) {
+                                                $fullString .= strip_tags($content['pub_year']) . "; ";
+                                            } 
+                                            if (strlen(strip_tags($content['pages_count'])) > 0) {
+                                                $fullString .= strip_tags($content['pages_count']) . " с; ";
+                                            }
+                                            if (strlen(strip_tags($content['format'])) > 0) {
+                                                $fullString .= strip_tags($content['format']) . "; ";
+                                            }
+                                            if (strlen(strip_tags($content['size'])) > 0) {
+                                                $fullString .= strip_tags($content['size']) . "; ";
+                                            }
+                                            if (strlen($fullString) > 0){?>
+                                                <div class="additionalInfo"><span><?=$fullString?></div> 
+                                            <?php } ?>
 
                                             <?php if (strlen(strip_tags($content['izd'])) > 5):?>
                                                 <div class="field edition">Издательство: <span class="value"><?=strip_tags($content['izd'])?></span></div> <!--Издательство-->
@@ -287,7 +340,8 @@ $pathSomewhere = "../";
                                             <?php if (strlen(strip_tags($content['udk'])) > 2):?>
                                                 <div class="field UDK">УДК: </span><span class="value"><?=strip_tags($content['udk'])?></span></div> <!--УДК-->
                                             <?php endif;?>   
-                                            
+
+
                                             <?php if (strlen(strip_tags($content['faculty_id'])) >= 1):?>
                                                 <div class="field faculty">Факультет: 
                                                     <span class="value">
@@ -341,9 +395,7 @@ $pathSomewhere = "../";
                                                 </div> 
                                             <?php endif;?>
 
-                                            <?php if (strlen(strip_tags($content['format'])) > 1 && strlen(strip_tags($content['size']) > 1)):?>
-                                                    <div class="field format">Данные о файле: <span class="value">Формат: <?=strip_tags($content['format'])?>, Размер: <?=strip_tags($content['size'])?></div> <!--Тип файла-->
-                                            <?php endif;?>
+                                            
 
                                             <?php if (strlen($_SESSION['authToken']) > 1){ ?>    
                                                 <?php if (strlen(strip_tags($content['link'])) > 5){
@@ -464,7 +516,8 @@ $pathSomewhere = "../";
                 </form>
                 <?php
                     if (isset($_GET['clear'])){
-                        $_SESSION['sql'] = "SELECT * FROM `materials`";
+                        $_SESSION['sql'] = "SELECT * FROM `materials`  
+                        ORDER BY `materials`.`id`  DESC";
                     }
                 
                 ?>
