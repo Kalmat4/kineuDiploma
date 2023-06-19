@@ -387,3 +387,14 @@ if (pathNameAuth == location.pathname){
     }, true);
 
 }
+
+
+function getLinkString(){
+    let inputLink = document.querySelector('input[name="link"]');
+    let inputFile = document.querySelector('input[name="upload"]');
+
+    let formData = new FormData();
+    formData.append('myFile', inputFile.files[0], 'document')
+    // alert(inputFile.files[0]);
+    inputLink.value = 'files/uploads/' + inputFile.value.replace('C:\\fakepath\\', '');
+}

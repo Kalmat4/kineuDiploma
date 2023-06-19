@@ -272,7 +272,7 @@ button{
 }
 .missionList > li{
     list-style-type: disc;
-    font-size: 1    rem;
+    font-size: 1.5rem;
     margin: 1rem;
 }
 .missionList{
@@ -383,6 +383,22 @@ table{
     flex-direction: column;
     align-items: center;
 }
+.redirectBtn > a{
+    background-color: var(--actualBackgroundColor);
+    padding: 1rem;
+    border: 1px solid var(--backgroundColor);
+    border-radius: 1rem;
+    color: var(--backgroundColor);
+}
+.redirectBtn{
+    display: flex;
+    justify-content: center;
+}
+.redirectBtn > a:hover{
+    background-color: var(--backgroundColor);
+    color: var(--actualBackgroundColor);
+    cursor: pointer;
+}
 .redirect > .title{
     text-align: center;
 }
@@ -414,6 +430,11 @@ table{
     min-height: .01%;
     overflow-x: auto;
     
+}
+.differentTable-wrap > table{
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 .bi{
     width: 1.5rem;
@@ -495,7 +516,10 @@ table{
     min-width: 100%;
     user-select: text;
 }
-
+.additionalInfo{
+    color: #6b6b6b;
+    font-style: italic;
+}
 .field{
     display: flex;
     flex-direction: row;
@@ -1141,6 +1165,82 @@ label{
     border: 1px solid var(--backgroundColor);
     color:var(--fontColor);
     background-color: var(--actualBackgroundColor);
+}
+.searchBox{
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+.searchInput{
+    font-size: 1.2rem;
+    color: var(--backgroundColor);
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border-color: var(--backgroundColor);
+    border-radius: 0.5rem;
+    width: 30rem;
+    border-width: 1px;
+}
+.searchInputBtn, .clearInputBtn{
+    background-color: transparent;
+    color: var(--backgroundColor);
+    border-radius: 0.5rem;
+    border: 1px solid var(--backgroundColor);
+    padding: 1rem;
+    margin-right: 1rem;
+}
+.searchInputBtn:hover, .clearInputBtn:hover{
+    cursor: pointer;
+    background-color: var(--backgroundColor);
+    color: var(--actualBackgroundColor);
+}
+.statsTitle ~ .centerStatusText{
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--backgroundColor);
+    margin: 0;
+}
+.centerStatusText{
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--backgroundColor);
+}
+.statsTable tr,.statsTable td,.statsTable th{
+    border: 1px solid black;
+    padding: 1rem;
+    border-color: var(--backgroundColor);
+    color: var(--backgroundColor);
+}
+.statsTable td:hover{
+    color: var(--actualBackgroundColor);
+    background-color: var(--backgroundColor);
+    cursor: pointer;
+}
+.stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    margin: 2rem auto;
+}
+.select{
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: var(--backgroundColor);
+    border: 1px solid var(--backgroundColor);
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    text-align: center;
+    background-color: var(--actualBackgroundColor);
+}
+.select:hover{
+    background-color: var(--backgroundColor);
+    color: var(--actualBackgroundColor);
+    cursor: pointer;
+}
+.statsTitle{
+    color: var(--backgroundColor) !important;
+    text-align: center;
 }
 /*ПАНЕЛЬ АДМИНИСТРАТОРА. КОНЕЦ*/
 
